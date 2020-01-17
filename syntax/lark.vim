@@ -7,18 +7,18 @@ if exists("b:current_syntax")
   finish
 endif
 
-syn match larkRule "[a-z_]\+"
-syn match larkTerm "[A-Z_]\+"
-syn match larkRuleMod "[!?]" contained
-syn match larkRegexMod "[imulx]\{1,5\}" contained
-syn match larkStringMod "i" contained
-syn match colon ":" contained
-syn match larkPriority "\.\d\+"hs=s+1 contained
-syn region larkRegex start="/" skip="\\." end="/" nextgroup=larkRegexMod
-syn region larkString start=/"/ skip=/\\./ end=/"/ nextgroup=larkStringMod
-syn match larkDirective "^\s*%\(ignore\|import\|declare\)"
+syn match larkRule "[a-z_]\+" display
+syn match larkTerm "[A-Z_]\+" display
+syn match larkRuleMod "[!?]" contained display
+syn match larkRegexMod "[imulx]\{1,5\}" contained display
+syn match larkStringMod "i" contained display
+syn match colon ":" contained display
+syn match larkPriority "\.\d\+"hs=s+1 contained display
+syn region larkRegex start="/" skip="\\." end="/" nextgroup=larkRegexMod display
+syn region larkString start=/"/ skip=/\\./ end=/"/ nextgroup=larkStringMod display
+syn match larkDirective "^\s*%\(ignore\|import\|declare\)" display
 syn match ruleOrTerm "^\s*[!?]\=\(\w\|\.\)\+:" contains=larkRule,larkTerm,larkRuleMod,larkPriority,colon
-syn region larkComment start="//" end="$"
+syn region larkComment start="//" end="$" display
 
 let b:current_syntax = "lark"
 
